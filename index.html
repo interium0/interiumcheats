@@ -3,72 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheat Hub</title>
+    <title>WeltyDEV</title>
     <style>
-        /* Оставим стили из текущего кода */
         body, html {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            color: #333;
-            background: #f9f9f9;
+            color: #fff;
+            background: #000;
+            overflow-x: hidden;
         }
 
         body {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             text-align: center;
-            min-height: 100vh;
-            overflow: hidden;
         }
 
-        .background-animation {
+        .nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background: #1e1e1e;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav a {
+            margin: 0 15px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #00bcd4;
+        }
+
+        .background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(45deg, #ffffff, #e0e0e0);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
+            background: url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+            opacity: 0.2;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .console-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 32px;
+            animation: blink 1s steps(2, start) infinite;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+        @keyframes blink {
+            from, to { color: transparent; }
+            50% { color: white; }
+        }
+
+        .content {
+            margin-top: 100px;
             padding: 20px;
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .title {
-            font-size: 36px;
-            color: #444;
-            margin-bottom: 20px;
-        }
-
-        .description {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 40px;
         }
 
         .button {
             display: inline-block;
             padding: 15px 30px;
             font-size: 18px;
-            color: white;
-            background: linear-gradient(45deg, #4CAF50, #3E8E41);
+            color: #fff;
+            background: linear-gradient(45deg, #2196F3, #1E88E5);
             text-decoration: none;
             border: none;
             border-radius: 25px;
@@ -78,18 +92,45 @@
 
         .button:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+            box-shadow: 0 0 15px rgba(33, 150, 243, 0.6);
+        }
+
+        .description {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .placeholder {
+            font-size: 18px;
+            margin-top: 50px;
+            color: #bbb;
         }
     </style>
 </head>
 <body>
-    <div class="background-animation"></div>
+    <div class="background"></div>
+    
+    <div class="nav">
+        <a href="#main">Главная</a>
+        <a href="#projects">Проекты</a>
+        <a href="#ads">Реклама</a>
+    </div>
 
-    <div class="container">
-        <div class="title">Привет, друг!</div>
-        <div class="description">Скорее всего, ты захотел поиграть с лучшими читами на Minecraft. У нас ты найдёшь лучшие читы, кряки, фри-читы и сливы приватных ключей!</div>
-        <a href="nursultan.html" class="button">NursultanNextGen Crack</a>
-        <a href="wexside.html" class="button">WexSide</a>
+    <div id="main" class="content">
+        <h1 class="console-effect">WeltyDEV</h1>
+        <p class="description">Добро пожаловать в WeltyDEV! Присоединяйтесь к нашему Telegram каналу.</p>
+        <a href="https://t.me/+O_UWJ0b47KswNGZi" target="_blank" class="button">Телеграм канал</a>
+    </div>
+
+    <div id="projects" class="content">
+        <h2>Проекты</h2>
+        <p class="placeholder">Здесь пока ничего нет.</p>
+    </div>
+
+    <div id="ads" class="content">
+        <h2>Реклама</h2>
+        <p>Привет, это раздел рекламы. Здесь ты можешь добавить рекламу своего проекта.</p>
+        <a href="https://t.me/Weltyrobot" target="_blank" class="button">Подать заявку</a>
     </div>
 </body>
 </html>

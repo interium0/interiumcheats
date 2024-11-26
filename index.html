@@ -6,53 +6,127 @@
     <title>WeltyDEV</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
-            background: url('https://www.example.com/hacker-background.jpg') no-repeat center center fixed;
+            background: url('https://www.example.com/hacker-blood-background.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
         }
         header {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
             text-align: center;
+            border-bottom: 2px solid red;
+            box-shadow: 0 0 10px red;
+        }
+        header h1 {
+            font-size: 50px;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            animation: blood-drip 1s infinite alternate;
+        }
+        header p {
+            font-size: 20px;
+            animation: flicker 1.5s infinite alternate;
         }
         nav {
             display: flex;
             justify-content: center;
             background-color: rgba(0, 0, 0, 0.7);
             padding: 10px;
+            border-top: 2px solid red;
         }
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
-            font-size: 18px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 5px;
         }
         nav a:hover {
-            color: #00bcd4;
+            color: #ff0000;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #ff0000;
+            left: 0;
+            bottom: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
         .container {
-            padding: 20px;
+            padding: 30px;
         }
         .button {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #00bcd4;
+            padding: 15px 30px;
+            background-color: #ff0000;
             color: white;
-            border-radius: 5px;
+            border-radius: 10px;
             text-decoration: none;
-            margin: 10px 0;
+            margin: 15px 0;
+            font-size: 20px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+            transition: transform 0.3s ease-in-out;
         }
         .button:hover {
-            background-color: #00796b;
+            background-color: #b20000;
+            transform: scale(1.1);
+        }
+        .button img {
+            vertical-align: middle;
+            margin-right: 10px;
         }
         .content {
             display: none;
+            animation: fadeIn 1s ease-in-out;
         }
         .active {
             display: block;
+        }
+
+        @keyframes blood-drip {
+            0% {
+                color: #ff0000;
+                text-shadow: 0 0 20px rgba(255,0,0,0.8), 0 0 30px rgba(255,0,0,0.6);
+            }
+            100% {
+                color: #8B0000;
+                text-shadow: 0 0 30px rgba(255,0,0,1), 0 0 40px rgba(255,0,0,0.8);
+            }
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -74,13 +148,13 @@
         <h2>Добро пожаловать в WeltyDEV!</h2>
         <p>Здесь мы создаем невероятные проекты. Подключайся к нашему телеграм-каналу:</p>
         <a href="https://t.me/+O_UWJ0b47KswNGZi" class="button" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Telegram_logo.svg" alt="Telegram" width="20" style="vertical-align: middle;"> Телеграм-канал
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Telegram_logo.svg" alt="Telegram" width="25"> Телеграм-канал
         </a>
     </div>
 
     <div id="projects" class="content">
         <h2>Проекты</h2>
-        <p>Этот раздел пока пуст.</p>
+        <p>Этот раздел пока пуст. Но скоро здесь появятся новые разработки.</p>
     </div>
 
     <div id="advertising" class="content">

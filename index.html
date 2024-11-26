@@ -237,7 +237,7 @@
     </div>
 </div>
 
-<!-- Модальное окно -->
+
 <div id="modal">
     <div id="modal-content">
         <h2>Подать заявку</h2>
@@ -248,20 +248,20 @@
 
 <script>
     function showPage(page) {
-        // Скрыть все страницы
+        
         const pages = document.querySelectorAll('.content');
         pages.forEach(page => page.classList.remove('active'));
 
-        // Показать выбранную страницу
+        
         document.getElementById(page).classList.add('active');
     }
 
-    // Открытие модального окна
+    
     function openModal() {
         document.getElementById("modal").style.display = "block";
     }
 
-    // Закрытие модального окна
+    
     function closeModal() {
         document.getElementById("modal").style.display = "none";
     }

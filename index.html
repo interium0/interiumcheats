@@ -8,42 +8,57 @@
         body, html {
             margin: 0;
             padding: 0;
-            overflow: hidden;
             font-family: Arial, sans-serif;
-            color: white;
+            color: #333;
+            background: #f9f9f9;
         }
 
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.8);
+            min-height: 100vh;
+            overflow: hidden;
         }
 
-        video {
+        .background-animation {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
             z-index: -1;
+            background: linear-gradient(45deg, #ffffff, #e0e0e0);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .title {
             font-size: 36px;
+            color: #444;
             margin-bottom: 20px;
         }
 
         .description {
             font-size: 18px;
+            color: #666;
             margin-bottom: 40px;
         }
 
@@ -52,7 +67,7 @@
             padding: 15px 30px;
             font-size: 18px;
             color: white;
-            background: linear-gradient(45deg, #ff7b00, #ff3b00);
+            background: linear-gradient(45deg, #4CAF50, #3E8E41);
             text-decoration: none;
             border: none;
             border-radius: 25px;
@@ -62,50 +77,44 @@
 
         .button:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 15px #ff7b00;
-        }
-
-        .product {
-            margin-bottom: 40px;
-        }
-
-        .product .button {
-            background: linear-gradient(45deg, #007bff, #00ff7b);
-        }
-
-        .product .button:hover {
-            box-shadow: 0 0 15px #00ff7b;
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
         }
 
         #products {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            margin-top: 50px;
         }
 
-        #products.active {
-            display: flex;
+        .product {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .product h2 {
+            font-size: 24px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .product .button {
+            background: linear-gradient(45deg, #2196F3, #1E88E5);
+        }
+
+        .product .button:hover {
+            box-shadow: 0 0 15px rgba(33, 150, 243, 0.6);
         }
     </style>
-    <script>
-        function showProducts() {
-            document.querySelector('.container').style.display = 'none';
-            document.getElementById('products').classList.add('active');
-        }
-    </script>
 </head>
 <body>
-    <video autoplay muted loop>
-        <source src="back.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    
+    <div class="background-animation"></div>
+
     <div class="container">
         <div class="title">Привет, друг!</div>
         <div class="description">Скорее всего, ты захотел поиграть с лучшими читами на Minecraft. У нас ты найдёшь лучшие читы, кряки, фри-читы и сливы приватных ключей!</div>
-        <button class="button" onclick="showProducts()">Скачать чит</button>
+        <a href="#products" class="button">Скачать чит</a>
     </div>
 
     <div id="products">

@@ -76,7 +76,25 @@
         .product .button:hover {
             box-shadow: 0 0 15px #00ff7b;
         }
+
+        #products {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #products.active {
+            display: flex;
+        }
     </style>
+    <script>
+        function showProducts() {
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById('products').classList.add('active');
+        }
+    </script>
 </head>
 <body>
     <video autoplay muted loop>
@@ -87,10 +105,10 @@
     <div class="container">
         <div class="title">Привет, друг!</div>
         <div class="description">Скорее всего, ты захотел поиграть с лучшими читами на Minecraft. У нас ты найдёшь лучшие читы, кряки, фри-читы и сливы приватных ключей!</div>
-        <a href="#products" class="button">Скачать чит</a>
+        <button class="button" onclick="showProducts()">Скачать чит</button>
     </div>
 
-    <div id="products" class="container">
+    <div id="products">
         <div class="product">
             <h2>NursultanNextGen Crack</h2>
             <a href="https://workupload.com/file/ZkQVaKZ3rPp" target="_blank" class="button">Скачать</a>
